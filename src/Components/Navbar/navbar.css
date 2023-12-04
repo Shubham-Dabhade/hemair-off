@@ -1,0 +1,10 @@
+.Navbar{
+    height: 100px;
+    width: inherit;
+    border: 1px solid red;
+    position: fixed;
+    top: 0px;
+    z-index: 3;
+    background: transparent;
+    /* background-color: red; */
+}

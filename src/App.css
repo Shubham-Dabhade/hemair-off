@@ -1,0 +1,15 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+@media screen and (min-width:1500px) {
+  .App{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+  }
+}
