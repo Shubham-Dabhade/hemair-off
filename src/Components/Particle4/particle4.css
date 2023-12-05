@@ -1,5 +1,15 @@
 .particle-container{
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
+}
+
+.loading-hemair-logo{
+    font-size: clamp(2.5rem, 1.0774rem + 3.7936vw, 5.626rem);
+    color: #F47021;
+    margin-bottom: 10px;
+}
+
+.loading-hemair-desc{
+    font-size: clamp(0.8rem, 0.0174rem + 1.0936vw, 3.626rem);
 }

@@ -1,23 +1,24 @@
 import React, { useEffect, useRef } from "react";
 import "./particle4.css";
+import { transform } from "framer-motion";
 
 const Particle4 = () => {
   const canvasRef = useRef(null);
   const divRef = useRef(null);
-  const barrierDistance = 200;
+  const barrierDistance = window.innerWidth>450?Math.min(window.innerWidth,window.innerHeight)*0.4:Math.min(window.innerWidth,window.innerHeight)/2;
   let particles = [];
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-    const numParticles = 300;
+    const numParticles = 600;
     let repelForce = 0;
 
     class Particle {
       constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.size = Math.random() * (4 - 1) + 1;
+        this.size = Math.random() * (5 - 1) + 1;
         this.speedX = (Math.random() - 0.5) * 4;
         this.speedY = (Math.random() - 0.5) * 4;
         this.opacity = Math.random(); // Initialize opacity here
@@ -52,7 +53,7 @@ const Particle4 = () => {
       }
 
       draw() {
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+        ctx.fillStyle = `rgba(128, 128, 128, ${this.opacity})`;  //particle color
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.closePath();
@@ -64,16 +65,27 @@ const Particle4 = () => {
       particles = [];
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      const divSize = Math.min(window.innerWidth, window.innerHeight, barrierDistance * 2);
-
+      // const barrierDistance = Math.min(window.innerWidthwidth,window.innerHeight)*0.2;
+      const divSize =   window.innerWidth>450?Math.min(window.innerWidth, window.innerHeight, barrierDistance * 2):Math.min(window.innerWidth, window.innerHeight, barrierDistance*2);
       divRef.current.style.width = `${divSize}px`;
       divRef.current.style.height = `${divSize}px`;
+
+
+      if(window.innerWidth<400){
+        
+
+      }
+      
+
 
       for (let i = 0; i < numParticles; i++) {
         let x, y;
         do {
           x = Math.random() * canvas.width;
           y = Math.random() * canvas.height;
+          // if(window.innerWidth<600){
+            
+          // }
         } while (
           x > divRef.current.offsetLeft - barrierDistance &&
           x < divRef.current.offsetLeft + divRef.current.offsetWidth + barrierDistance &&
@@ -105,11 +117,17 @@ const Particle4 = () => {
     };
 
     const handleOverflow = () => {
-        document.body.style.overflowX = window.innerWidth < 400 ? "hidden" : "auto";
-        document.body.style.overflowY = window.innerWidth < 400 ? "scroll" : "auto";
+      if(window.innerWidth){
+        document.body.style.overflowX = "hidden";
+      }
+        // document.body.style.overflowY = window.innerWidth < 400 ? "scroll" : "auto";
       };
 
     const handleResize = () => {
+      barrierDistance =
+      window.innerWidth > 450
+        ? Math.min(window.innerWidth, window.innerHeight) * 0.4
+        : Math.min(window.innerWidth,window.innerHeight)/2;
       init();
       animate();
       handleOverflow();
@@ -137,25 +155,28 @@ const Particle4 = () => {
       <div
         ref={divRef}
         style={{
-          width: "400px",
-          height: "400px",
-          background: "transparent",
+          background: "white",
           position: "absolute",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
           borderRadius: "50%",
-          border: "3px dashed rgba(0, 0, 255, 0.5)",
+          boxShadow: "rgba(17, 12, 46, 0.15) 0px 48px 100px 0px",
+          display:'flex',
+          alignItems:'center',
+          justifyContent:'center',
+          flexDirection:'column'
         }}
       >
-        {/* Content of your div */}
+        <div className="loading-hemair-logo">Hemair</div>
+        <div className="loading-hemair-desc">Sculpting Tomorrow's Clean Room Landscape Today.</div>
       </div>
       <canvas
         ref={canvasRef}
         style={{
           position: "fixed",
           top: 0,
-          background: "black",
+          background: "white",
           left: 0,
           width: "100%",
           height: "100%",

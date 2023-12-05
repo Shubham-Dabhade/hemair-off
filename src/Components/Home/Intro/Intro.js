@@ -35,15 +35,18 @@ const Intro = () => {
   });
   const { height } = dimension;
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, -height * 0.92]);
+  // const y = useTransform(scrollYProgress, [0, 1], [0, -height * 0.92]);  //is used to rotate the cards
+  const y = useTransform(scrollYProgress, [0, 0.6], [0, 340]);
   //   console.log(y)
 
   const transy = useTransform(scrollYProgress, [0, 1], [0, height * 2.73]);
-  const alty = useTransform(scrollYProgress, [0, 1], [0, -height * 1.2]);
+  // const alty = useTransform(scrollYProgress, [0, 1.1], [0, -height * 1.2]);
+  const alty = useTransform(scrollYProgress, [0, 0.6], [0, height * 0.87]);
+  
 
 
   // Opacity change based on scroll progress
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, (latest+0.8)]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [0, (latest)]);
 
 
 
@@ -84,8 +87,8 @@ const Intro = () => {
           className="single-card"
           style={{
             rotateY: y,
-            translateY: transy,
-            display: dis ? "none" : "block",
+            translateY: transy, 
+            // display: dis ? "none" : "block",
           }}
         >
           <div className="front">
@@ -95,9 +98,9 @@ const Intro = () => {
               className="front-worker-image"
             />
           </div>
-          {/* <div className="back">
+          <div className="back">
           <h2>Content</h2>
-        </div> */}
+        </div>
         </motion.div>
         <motion.div
           ref={card}
@@ -105,7 +108,7 @@ const Intro = () => {
           style={{
             rotateY: y,
             translateY: transy,
-            display: dis ? "none" : "block",
+            // display: dis ? "none" : "block",
           }}
         >
           <div className="front">
@@ -115,9 +118,9 @@ const Intro = () => {
               className="front-worker-image"
             />
           </div>
-          {/* <div className="back">
+          <div className="back">
           <h2>Content</h2>
-        </div> */}
+        </div>
         </motion.div>
         <motion.div
           ref={card}
@@ -125,7 +128,7 @@ const Intro = () => {
           style={{
             rotateY: y,
             translateY: transy,
-            display: dis ? "none" : "block",
+            // display: dis ? "none" : "block",
           }}
         >
           <div className="front">
@@ -135,14 +138,14 @@ const Intro = () => {
               className="front-worker-image"
             />
           </div>
-          {/* <div className="back">
+          <div className="back">
           <h2>Content</h2>
-        </div> */}
+        </div>
         </motion.div>
       </div>
-        <motion.div className="introduction-container" style={{opacity,translateY: alty}}>
-            Hello
-        </motion.div>
+          <motion.div className="introduction-container" style={{opacity,translateY: alty}}>
+              Hello
+          </motion.div>
     </div>
   );
 };

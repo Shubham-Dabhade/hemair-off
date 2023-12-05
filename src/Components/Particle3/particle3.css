@@ -8,6 +8,8 @@
 }
 .particle-canvas {
   background-color: #ffffff; /* Set the background color to black */
+  height: 100%;
+  width: 100%;
 }
 
 .mask,
@@ -45,21 +47,39 @@
   color: black;
 }
 .mask-heading {
+  /* position: absolute; */
+  /* top: 50%; */
+  /* background: red; */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+
+  /* left: 50%;
+  transform: translate(-50%,-50%); */
+  box-shadow: rgba(0,0,0, 0.05) 0px 30px 60px 22px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 span {
   color: #ec4e39;
 }
+.box-shadow {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add box shadow here */
+}
 
 .mask {
   mask-image: url("../../images/mask.svg");
+  mask-border-outset: 0px 4px 8px rgba(0, 0, 0, 0.2);
   mask-repeat: no-repeat;
   mask-size: 40px;
-  background: #FFFFFF;
+  /* background: #FFFFFF; */
   position: absolute;
   color: #ec4e39;
   font-weight: 400;
   font-size: 30px;
   border: 1px solid black;
+  background: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .alert {
