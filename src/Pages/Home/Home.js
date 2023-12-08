@@ -9,6 +9,7 @@ import Particle4 from "../../Components/Particle4/Particle4";
 import Intro from "../../Components/Home/Intro/Intro";
 import Navbar from "../../Components/Navbar/Navbar";
 import YourComponent from "../../Components/Flip/YourComponent";
+import Banner from "../../Components/Home/Banner/Banner";
 
 
 
@@ -20,12 +21,10 @@ const Home = () => {
     // // <Particle1/>
     // // <Particle2/>
     // <Particle3/>
-    <Particle4/>
-    // <div className="Home">
-    // <Navbar/>
-    //   <Intro/>
-    //   lorem2000
-    // </div>
+    // <Particle4/>
+    <div className="Home">
+      <Banner/>
+    </div>
   );
 };
 
